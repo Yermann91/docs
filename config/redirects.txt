@@ -16,8 +16,8 @@
 / /learn/welcome/introduction/ 301
 /learn/ /learn/welcome/introduction/ 301
 /learn /learn/welcome/introduction/ 301
-/installing/gettingStarted/ /learn/getting-started/raspberrypi3/nodejs/
-/installing/gettingStarted /learn/getting-started/raspberrypi3/nodejs/
+/installing/gettingStarted/ /learn/getting-started/raspberrypi5/nodejs/
+/installing/gettingStarted /learn/getting-started/raspberrypi5/nodejs/
 /installing/gettingStarted-BBB/ /learn/getting-started/beaglebone-black/nodejs/
 /installing/gettingStarted-BBB /learn/getting-started/beaglebone-black/nodejs/
 /installing/gettingStarted-Humming/ /learn/getting-started/hummingboard/nodejs/
@@ -34,8 +34,8 @@
 /installing/gettingStarted-Odroid-XU4 /learn/getting-started/odroid-XU4/nodejs/
 /installing/gettingStarted-TS4900/ /learn/getting-started/ts4900/nodejs/
 /installing/gettingStarted-TS4900 /learn/getting-started/ts4900/nodejs/
-/installing/otherboards/ /learn/getting-started/raspberrypi3/nodejs/
-/installing/otherboards /learn/getting-started/raspberrypi3/nodejs/
+/installing/otherboards/ /learn/getting-started/raspberrypi5/nodejs/
+/installing/otherboards /learn/getting-started/raspberrypi5/nodejs/
 
 # Device name changes
 /raspberrypi/ /raspberry-pi/
@@ -54,12 +54,12 @@
 /dart6ul /imx6ul-var-dart/
 
 # Default redirects
-/learn/getting-started/ /learn/getting-started/raspberrypi3/nodejs/ 301
-/learn/getting-started /learn/getting-started/raspberrypi3/nodejs/ 301
-/reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi3/
-/reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi3/
-/faq/troubleshooting/troubleshooting/ /faq/troubleshooting/troubleshooting/raspberrypi3/
-/faq/troubleshooting/troubleshooting /faq/troubleshooting/troubleshooting/raspberrypi3/
+/learn/getting-started/ /learn/getting-started/raspberrypi5/nodejs/ 301
+/learn/getting-started /learn/getting-started/raspberrypi5/nodejs/ 301
+/reference/supervisor/configuration-list/ /reference/supervisor/configuration-list/raspberrypi5/
+/reference/supervisor/configuration-list /reference/supervisor/configuration-list/raspberrypi5/
+/faq/troubleshooting/troubleshooting/ /faq/troubleshooting/troubleshooting/raspberrypi5/
+/faq/troubleshooting/troubleshooting /faq/troubleshooting/troubleshooting/raspberrypi5/
 /learn/develop/ /learn/develop/local-mode/
 /learn/develop /learn/develop/local-mode/
 /learn/develop/cloud-iot-provisioning/ /learn/develop/cloud-iot-provisioning/aws/
@@ -68,8 +68,8 @@
 /learn/deploy /learn/deploy/deployment/
 /learn/deploy/build-optimisation/ /learn/deploy/build-optimization/
 /learn/deploy/build-optimisation /learn/deploy/build-optimization/
-/learn/manage/ /learn/manage/account/
-/learn/manage /learn/manage/account/
+/learn/manage/ /learn/manage/actions/
+/learn/manage /learn/manage/actions/
 /faq/ /faq/troubleshooting/faq/
 /faq /faq/troubleshooting/faq/
 /reference/ /reference/hardware/devices/
@@ -110,10 +110,12 @@
 /learn/develop/integrations/aws /learn/develop/cloud-iot-provisioning/aws/
 /learn/develop/integrations/azure-iot-hub/ /learn/develop/cloud-iot-provisioning/azure/
 /learn/develop/integrations/azure-iot-hub /learn/develop/cloud-iot-provisioning/azure/
-/learn/develop/integrations/google-iot/ /learn/develop/cloud-iot-provisioning/gcp/
-/learn/develop/integrations/google-iot /learn/develop/cloud-iot-provisioning/gcp/
+/learn/develop/integrations/google-iot/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/integrations/google-iot /learn/develop/cloud-iot-provisioning/
 /learn/develop/integrations/bluemix/ /learn/develop/cloud-iot-provisioning/
 /learn/develop/integrations/bluemix /learn/develop/cloud-iot-provisioning/
+/learn/develop/cloud-iot-provisioning/gcp/ /learn/develop/cloud-iot-provisioning/
+/learn/develop/cloud-iot-provisioning/gcp /learn/develop/cloud-iot-provisioning/
 
 # Restructure
 /introduction/ /learn/welcome/introduction/
@@ -160,8 +162,8 @@
 /management/applications /learn/manage/actions/
 /management/devices/ /learn/manage/actions/
 /management/devices /learn/manage/actions/
-/management/preferences/ /learn/manage/account/
-/management/preferences /learn/manage/account/
+/management/preferences/ /learn/accounts/account/
+/management/preferences /learn/accounts/account/
 /configuration/advanced/ /reference/OS/advanced/
 /configuration/advanced /reference/OS/advanced/
 /deployment/network/ /reference/OS/network/
@@ -220,21 +222,36 @@
 /reference/base-images/resin-base-images /reference/base-images/base-images/
 /reference/api/resources/application/ /reference/api/resources/fleet/
 /reference/api/resources/application /reference/api/resources/fleet/
-/learn/manage/app-types/ /learn/manage/fleet-types/
-/learn/manage/app-types /learn/manage/fleet-types/
-/learn/welcome/support/ /learn/manage/support-access/ 301
-/learn/welcome/support /learn/manage/support-access/ 301
+/learn/manage/app-types/ /learn/accounts/fleet-types/
+/learn/manage/app-types /learn/accounts/fleet-types/
+/learn/welcome/support/ /learn/accounts/support-access/ 301
+/learn/welcome/support /learn/accounts/support-access/ 301
 /learn/welcome/core-concepts/ /learn/more/glossary/ 301
 /learn/welcome/core-concepts /learn/more/glossary/ 301
 /learn/welcome/glossary/ /learn/more/glossary/ 301
 /learn/welcome/glossary /learn/more/glossary/ 301
-/learn/more/masterclasses/ /learn/more/masterclasses/masterclass-intro/ 301 
-/learn/more/masterclasses /learn/more/masterclasses/masterclass-intro/ 301 
+/learn/more/masterclasses/ /learn/more/masterclasses/masterclass-intro/ 301
+/learn/more/masterclasses /learn/more/masterclasses/masterclass-intro/ 301
 /learn/more/examples/projects /learn/more/examples/labs-projects
 /learn/more/examples/projects/ /learn/more/examples/labs-projects
 /learn/more/examples/seed-projects /learn/more/examples/labs-projects
 /learn/more/examples/seed-projects/ /learn/more/examples/labs-projects
 
+
+# Accounts & Billing restructure
+/learn/manage/account/ /learn/accounts/account/
+/learn/manage/account /learn/accounts/account/
+/learn/manage/organizations/ /learn/accounts/organizations/
+/learn/manage/organizations /learn/accounts/organizations/
+/learn/manage/billing/ /learn/accounts/billing/
+/learn/manage/billing /learn/accounts/billing/
+/learn/manage/fleet-types/ /learn/accounts/fleet-types/
+/learn/manage/fleet-types /learn/accounts/fleet-types/
+/learn/manage/support-access/ /learn/accounts/support-access/
+/learn/manage/support-access /learn/accounts/support-access/
+
+/learn/manage/apps/ /learn/develop/apps/
+/learn/manage/apps /learn/develop/apps/
 
 
 # Important: keep dynamic redirect below the static redirects
@@ -252,10 +269,10 @@
 
 ## Removed Getting Started guides
 
-/learn/getting-started/skx2/:language/ /learn/getting-started/raspberrypi3/:language/
-/learn/getting-started/skx2/:language /learn/getting-started/raspberrypi3/:language/
-/learn/getting-started/ts4900/:language/ /learn/getting-started/raspberrypi3/:language/
-/learn/getting-started/ts4900/:language /learn/getting-started/raspberrypi3/:language/
+/learn/getting-started/skx2/:language/ /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/skx2/:language /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/ts4900/:language/ /learn/getting-started/raspberrypi5/:language/
+/learn/getting-started/ts4900/:language /learn/getting-started/raspberrypi5/:language/
 
 ###############################################
 # Legacy Server Style Redirects
@@ -271,7 +288,7 @@
 (.*)\.md(.*) -> $1$2
 ^\/introduction\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
 ^\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2
-^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi3/nodejs/$1$2
+^\/installing\/gettingStarted\/?(\?.+)?(#.+)?$-> /learn/getting-started/raspberrypi5/nodejs/$1$2
 ^\/installing\/gettingStarted-BBB\/?(\?.+)?(#.+)?$ -> /learn/getting-started/beaglebone-black/nodejs/$1$2
 ^\/installing\/gettingStarted-Humming\/?(\?.+)?(#.+)?$ -> /learn/getting-started/hummingboard/nodejs/$1$2
 ^\/installing\/gettingStarted-NUC\/?(\?.+)?(#.+)?$ -> /learn/getting-started/intel-nuc/nodejs/$1$2
@@ -292,7 +309,7 @@
 ^\/(.*)\/dart6ul\/(.*) -> /$1/imx6ul-var-dart/$2
 
 # Default redirects
-^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi3/nodejs/$1$2
+^\/learn\/getting-started\/?(\?.+)?(#.+)?$ -> /learn/getting-started/raspberrypi5/nodejs/$1$2
 ^\/reference\/supervisor\/configuration-list\/?(\?.+)?(#.+)?$ -> /reference/supervisor/configuration-list/raspberrypi3/$1$2
 ^\/faq\/troubleshooting\/troubleshooting\/?(\?.+)?(#.+)?$ -> /faq/troubleshooting/troubleshooting/raspberrypi3/$1$2
 ^\/learn\/develop\/?(\?.+)?(#.+)?$ -> /learn/develop/local-mode/$1$2
@@ -325,8 +342,9 @@
 ^\/learn\/develop\/integrations\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
 ^\/learn\/develop\/integrations\/aws\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/aws/$1$2
 ^\/learn\/develop\/integrations\/azure-iot-hub\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/azure/$1$2
-^\/learn\/develop\/integrations\/google-iot\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/gcp/$1$2
+^\/learn\/develop\/integrations\/google-iot\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
 ^\/learn\/develop\/integrations\/bluemix\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
+^\/learn\/develop\/cloud-iot-provisioning\/gcp\/?(\?.+)?(#.+)?$ -> /learn/develop/cloud-iot-provisioning/$1$2
 
 # Restructure
 ^\/introduction\/?(\?.+)?(#.+)?$ -> /learn/welcome/introduction/$1$2

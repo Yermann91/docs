@@ -96,7 +96,7 @@ Turning on local mode is useful when you are prototyping your services, as it al
 
 ### Deactivate Device
 
-This setting will [deactivate the device][inactive-devices] and charge a one-time deactivation fee (equivalent to the cost of a single undiscounted device-month). To deactivate, the device must be offline and be attached to a valid billing account.
+This setting will [deactivate the device][inactive-devices] and charge a one-time deactivation fee (equivalent to the cost of a single undiscounted device-month) that is not covered by your plan's allowance. To deactivate, the device must be offline and be attached to a valid billing account.
 
 Once the device is deactivated, the device won't be counted towards your device total. It will remain inactive until it comes back online.
 
@@ -179,12 +179,12 @@ __Info:__ If you have a device [preloaded][preload-devices] with an OS version l
 [fleet-types]:/learn/manage/app-types
 [persistent-storage]:/learn/develop/runtime/#persistent-storage
 [purge-data]:#purge-data
-[organization]:/learn/manage/organizations/
-[administrator]:/learn/manage/organizations/#managing-roles--access-in-an-organization
-[add-application-member]:/learn/manage/account/#add-an-application-member
-[developer]:/learn/manage/account/#developer
-[support-access]:/learn/manage/support-access
-[inactive-devices]:/learn/manage/billing/#inactive-devices
-[fleet-members]:/learn/manage/account/#fleet-members
+[organization]:/learn/accounts/organizations/
+[administrator]:/learn/accounts/organizations/#managing-roles--access-in-an-organization
+[add-application-member]:/learn/accounts/account/#add-an-application-member
+[developer]:/learn/accounts/fleet-members#developer
+[support-access]:/learn/accounts/support-access
+[inactive-devices]:/learn/accounts/billing/#inactive-devices
+[fleet-members]:/learn/accounts/fleet-members
 [docker-data-persistence-strategies]:https://docs.docker.com/storage/
 [public-url]:/learn/develop/runtime/#public-device-urls

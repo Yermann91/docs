@@ -32,7 +32,7 @@ To construct an API call, it helps to understand a little about how the underlyi
 Knowing the resource you wish to act upon and the method you wish to act with is enough for some requests. For example, if you want to view all fleets you have access to (which includes public fleets), you can use the `GET` method and the `application` resource. Your API call would look like this:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v5/application" \
+curl -X GET "{{ $links.apiBase }}/v6/application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -40,7 +40,7 @@ curl -X GET "{{ $links.apiBase }}/v5/application" \
 If you want to limit this to only return fleets related to the authenticated user, use the `my_application` resource. For example:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v5/my_application" \
+curl -X GET "{{ $links.apiBase }}/v6/my_application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -53,7 +53,7 @@ The following API call uses `$select` to only return the name and device type fo
 
 ```shell
 curl -X GET
-"{{ $links.apiBase }}/v5/application?\$select=app_name,device_type" \
+"{{ $links.apiBase }}/v6/application?\$select=app_name,device_type" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -61,16 +61,33 @@ curl -X GET
 In some cases, you'll want to get information for one specific resource, rather than all resources of that type. If you happen to know the resource ID, you can simply append it to the resource name:
 
 ```shell
-curl -X GET "{{ $links.apiBase }}/v5/device(<ID>)" \
+curl -X GET "{{ $links.apiBase }}/v6/device(<ID>)" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-Many times, however, you won't know the internal ID used by the API, and you'll want to use some other piece of information to find the appropriate resource. In these cases, you can use the `$filter` method to select resources based on any field. For example, if you are looking for a specific device, it's more likely that you'll have the device UUID than the device ID:
+This also works for other pieces of unique information as long as you specify them, eg the device uuid for devices:
+
+```shell
+curl -X GET "{{ $links.apiBase }}/v6/device(uuid='<UUID>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+or for resources where multiple elements combine to be unique, eg for device tags the device and tag key are a unique combination:
+
+```shell
+curl -X GET "{{ $links.apiBase }}/v6/device(device=<DEVICE ID>,tag_key='<KEY>')" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer <AUTH_TOKEN>"
+```
+
+
+Many times, however, you won't know the internal ID or other unique info used by the API, and you'll want to use some other piece of information to find the appropriate resource. In these cases, you can use the `$filter` method to select resources based on any field. For example, if you are looking for a specific device, it may be you have neither the ID nor UUID but you do know the name:
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v5/device?\$filter=uuid%20eq%20'<UUID>'" \
+"{{ $links.apiBase }}/v6/device?\$filter=name%20eq%20'<DEVICE NAME>'" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -81,7 +98,7 @@ A final tip for constructing API calls: for some of the fields in the API respon
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v5/device?\$filter=uuid%20eq%20'<UUID>'&\$expand=belongs_to__application" \
+"{{ $links.apiBase }}/v6/device(uuid='<UUID>')?\$expand=belongs_to__application" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
@@ -90,13 +107,13 @@ It's also possible to filter on a field that belongs to a linked resource. To fi
 
 ```shell
 curl -X GET \
-"{{ $links.apiBase }}/v5/device?\$filter=belongs_to__application/app_name%20eq%20'<APP_NAME>'" \
+"{{ $links.apiBase }}/v6/device?\$filter=belongs_to__application/app_name%20eq%20'<APP_NAME>'" \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer <AUTH_TOKEN>"
 ```
 
-[odata]:http://www.odata.org/
-[odata-docs]:http://www.odata.org/getting-started/basic-tutorial/
+[odata]:https://www.odata.org/
+[odata-docs]:https://www.odata.org/getting-started/basic-tutorial/
 [resources]:/reference/api/resources/fleet
-[tokens]:/learn/manage/account/#session-tokens
-[api-keys]:/learn/manage/account/#api-keys
+[tokens]:/learn/accounts/account#session-tokens
+[api-keys]:/learn/accounts/account#api-keys

@@ -1,10 +1,10 @@
-
 AAAAB
 Adblocker
 Aetina
 ahci
 allwinner
 alsa
+altboot
 alwaysai
 amdefine
 apikey
@@ -21,6 +21,7 @@ Asus
 ASYNCDNS
 aufs
 Authy
+Authyßß
 autoconnect
 autolinker
 automounting
@@ -45,6 +46,7 @@ Baseimages
 bblayers
 beagleboard
 Beaglebone
+bitbake
 blkio
 blocklists
 blox
@@ -106,6 +108,7 @@ devboard
 developmentmode
 devicehost
 deviceip
+devicekey
 devicetypes
 Devkit
 devtmpfs
@@ -134,6 +137,7 @@ encodeurl
 endevour
 endianity
 endmacro
+entra
 envinfo
 eoan
 esbuild
@@ -158,6 +162,7 @@ fleetordevice
 forkable
 FORMATED
 fseventsd
+fstype
 gcloud
 genericx
 getrandom
@@ -234,10 +239,12 @@ microswitches
 minideb
 miniuart
 minpoll
+misattributed
 mitigations
 mmcblk
 mmcli
 modeswitch
+mountpoint
 mraa
 MRAA
 mschapv
@@ -311,6 +318,7 @@ raspberrypi
 raspberrypicm
 RAWIO
 RCSI
+rcvbuf
 rechoir
 redsocks
 REFCLOCK
@@ -334,6 +342,8 @@ rockpi
 rockpro
 Rocktech
 rollouts
+rootfs
+RSSPM
 rulefilename
 ruuvitag
 rwxr
@@ -348,10 +358,12 @@ SECHASH
 secretpassword
 selectpicker
 serivce
+serv
 SIGND
 signup
 sindresorhus
 smarc
+sndbuf
 someservice
 Spacely
 sshkeys
@@ -366,6 +378,7 @@ supervisortest
 sysfs
 sysroot
 systfs
+sysv
 tagkey
 tapable
 tarbz
@@ -408,6 +421,7 @@ updatability
 updateable
 upgradability
 upscript
+upvote
 usbboot
 usbutils
 userns

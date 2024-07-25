@@ -88,12 +88,24 @@ dtparam=spi=on
 dtparam=audio=on
 ```
 
+Please note that `spi`, `audio`, and all of the `i2c` params should be specified within their own sets of quotes in order to be written correctly to `config.txt`.
+
 Another example would be setting several overlays with their own parameters, e.g. `BALENA_HOST_CONFIG_dtoverlay = "i2c-rtc,ds1307","lirc-rpi"` will translate to:
 
 ```
 dtoverlay=i2c-rtc,ds1307
 dtoverlay=lirc-rpi
 ```
+
+As of Supervisor v16+, the above will translate to:
+
+```
+dtoverlay=i2c-rtc
+dtparam=dc1307
+dtoverlay=lirc-rpi
+```
+
+This modifies each parameter to be on its own line in order to avoid the 80 character line limit imposed by config.txt. It is the recommended method of setting one or more overlays with their own parameters.
 
 This parsing will only be done if the value is a valid string, so if it doesn't begin with a quote `"`, the value will be parsed as a single string and not split into several lines. For instance `BALENA_HOST_CONFIG_dtoverlay = i2c-rtc,ds1307` will translate to:
 
@@ -105,11 +117,12 @@ dtoverlay=i2c-rtc,ds1307
 
 To disable the Raspberry Pi rainbow splash screen, add the `disable_splash=1` entry to `config.txt`.
 
-__Note:__ This setting disables the Raspberry Pi rainbow splash screen but does not disable the {{ $names.company.lower }} logo splash screen. If you would like to replace the {{ $names.company.lower }} logo with your custom splash logo, replace `splash/balena-logo.png` located in the [boot partition][boot-partition] of the image. Note that this file may be called `resin-logo.png` on older releases.
+__Note:__ This setting disables the Raspberry Pi rainbow splash screen but does not disable the {{ $names.company.lower }} logo splash screen. If you would like to replace the {{ $names.company.lower }} logo with your custom splash logo, you must do so via the [Configuration page][configuration-page].
 
 [boot-partition]:/reference/OS/overview/2.x/#image-partition-layout
 [config-txt]:https://www.raspberrypi.com/documentation/computers/config_txt.html
 [configuration]:/learn/manage/configuration
+[configuration-page]:/learn/manage/configuration/#overriding-the-splash-screen
 [configuration-list]:/reference/supervisor/configuration-list
 [configuration-fleet]:/learn/manage/configuration/#fleet-configuration-management
 [configuration-device]:/learn/manage/configuration/#device-configuration-management

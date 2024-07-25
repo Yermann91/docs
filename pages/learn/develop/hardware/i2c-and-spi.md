@@ -20,6 +20,7 @@ title: I2C and Other Interfaces
   * [MRAA for GPIO and hardware access](/hardware/i2c-and-spi#mraa-for-gpio-and-hardware-access)
   * [Edison in USB Host mode](/hardware/i2c-and-spi#edison-in-usb-host-mode)
 * [IOT-GATE-iMX8](/hardware/i2c-and-spi#iot-gate-imx8)
+* [Up Squared](/hardware/i2c-and-spi#up-squared)
   * [Serial ports](/hardware/i2c-and-spi#serial-ports)
 * [Jetson Devices](/hardware/i2c-and-spi#jetson-devices)
   * [Custom device trees](/hardware/i2c-and-spi#custom-device-trees)
@@ -262,7 +263,7 @@ The best and easiest way to interface with GPIO, I2C, SPI or UART on the Intel E
 [MRAA library][mraa-link], this library gives you a simple way to write C, python or Node.js applications that
 interact directly with the Edison hardware.
 
-If you use our [{{ $names.base_images.lib }}/edison-node][dockerbase-node] or [{{ $names.base_images.lib }}/edison-python][dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
+If you use our [{{ $names.base_images.lib }}/intel-edison-node][dockerbase-node] or [{{ $names.base_images.lib }}/intel-edison-python][dockerbase-python] base images in your applications, you will automatically have the mraa setup correctly for node.js or python respectively.
 
 Have a look at this [python example](https://github.com/shaunmulligan/hello-python-edison) or this [node.js example](https://github.com/shaunmulligan/edison-blink-node) to get started.
 
@@ -312,6 +313,12 @@ uart_mode=rs232
 
 Similarly, rs485 can be selected in the environment file as well. The device should be rebooted after setting the uart operating mode the for the changes to take effect.
 
+## Up Squared
+
+### Serial Ports
+
+Depending on the HAT Configuration defined in BIOS, the Up Squared UART communication on pins 8 and 10 can be performed using either `/dev/ttyS4` or `/dev/ttyS5`. Please consult the HAT Configurations menu in BIOS for details on how pins are configured on your device.
+
 ## Jetson Devices
 
 ### Custom device trees
@@ -339,17 +346,23 @@ After that, navigate to the `Device Configuration` tab in the balenaCloud dashbo
 
 After the custom device tree has been validated, it can be included in newer balenaOS images. For Jetson TX2 and Nano, open a pull request in the [balena Jetson device](https://github.com/balena-os/balena-jetson) repository following this [example commit](https://github.com/balena-os/balena-jetson/commit/3dbf9c96e5986c2138f318d1ee9f0d5c1a2fc3c8). For the Jetson AGX Orin, the PR should be opened in the [balena Jetson Orin](https://github.com/balena-os/balena-jetson-orin) repository. Once your PR is approved and merged, a new balenaOS image that includes your custom device tree will become available shortly.
 
-[i2c-link]:http://en.wikipedia.org/wiki/I%C2%B2C
-[spi-link]:http://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
+Please note that if the changes for your carrier board expand past kernel device-trees, or require modifications to board configuration files like pin multiplexing configuration files or any other device-trees or files used by firmware, these may not be provided by the existing cloud images. During provisioning the resulting configuration changes are stored in the QSPI or in the hardware defined boot partitions, and thus will be replaced with the default values when updating the Host Operating System. Please [contact us](https://www.balena.io/contact-sales) if you would like to use a Jetson carrier board which may not be fully compatible with its' corresponding devkit, or with any of our cloud images for your Jetson module.
+
+### Container packages
+
+The Jetson specific packages installed in your container images need to be in sync with the Linux for Tegra version used by the Host Operating System. Our base images for Jetson devices come pre-populated with `/etc/apt/sources.list.d/nvidia.list` files, which include the necessary links so that the apt repositories are in sync with the L4T version used by our latest OS images. If you suspect you encountered a mismatch, please check the `L4T` version in your Host OS using `uname -r` and compare it to the release version in your container's `/etc/apt/sources.list.d/nvidia.list` file. Please check our [Jetson Examples](https://github.com/balena-io-examples/jetson-examples) repository for more information on how to set-up your container images.
+
+[i2c-link]:https://en.wikipedia.org/wiki/I%C2%B2C
+[spi-link]:https://en.wikipedia.org/wiki/Serial_Peripheral_Interface_Bus
 [balena-sense-example]:https://github.com/balena-labs-projects/balena-sense
-[ads1115-link]:http://www.adafruit.com/product/1085
+[ads1115-link]:https://www.adafruit.com/product/1085
 [digitiser-link]:{{ $links.githubPlayground }}/digitiser
 [firebaseTemp-link]:{{ $links.githubPlayground }}/firebaseDTL
 [spi-npm]:https://www.npmjs.com/package/spi
 [picamera-link]:{{ $links.githubLabs }}/balena-rpi-python-picamera
 [mraa-link]:https://github.com/intel-iot-devkit/mraa
 [upm-link]:https://github.com/intel-iot-devkit/upm
-[dockerbase-node]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-node/
-[dockerbase-python]:https://hub.docker.com/r/{{ $names.base_images.lib }}/edison-python/
+[dockerbase-node]:https://hub.docker.com/r/{{ $names.base_images.lib }}/intel-edison-node/
+[dockerbase-python]:https://hub.docker.com/r/{{ $names.base_images.lib }}/intel-edison-python/
 [dt-params]:/reference/OS/advanced/#setting-device-tree-overlays-dtoverlay-and-parameters-dtparam
 [device-configuration]:/learn/manage/configuration/#device-configuration-management

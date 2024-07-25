@@ -17,9 +17,9 @@ jobs:
     steps:
       # Checks out a copy of your repository on the ubuntu-latest machine
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3
+      - uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 
         with:
           node-version: 18
           cache: "npm"
@@ -28,10 +28,13 @@ jobs:
         run: npm run deploy-docs --if-present
 
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3.1.0 
+        uses: cloudflare/wrangler-action@v3.5.0
         with:
           apiToken: ${{ secrets.CF_API_TOKEN }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           wranglerVersion: '3.5.1' # latest - https://www.npmjs.com/package/wrangler
-          preCommands: wrangler --version
-          command: pages publish --branch $CF_BRANCH --project-name=$cloudflare_website  build/ | tee -a $GITHUB_STEP_SUMMARY
+          command: --version
+          postCommands: npx wrangler pages deploy --branch $CF_BRANCH --project-name=$cloudflare_website  build/ | tee -a $GITHUB_STEP_SUMMARY
+
+
+
